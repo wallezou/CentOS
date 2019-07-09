@@ -1,4 +1,9 @@
-Linux 响铃问题。
+去除虚拟机Linux的报警声
+
+# vim /etc/inputrc
+set bell-style visible --去掉此参数注释#
+
+
 
 解决方案来源：
 https://blog.csdn.net/erazy0/article/details/5616630
@@ -17,5 +22,4 @@ linux Bell 报警声音
 原文：https://blog.csdn.net/erazy0/article/details/5616630 
 版权声明：本文为博主原创文章，转载请附上博文链接！
 
-# vim /etc/inputrc
-set bell-style visible --去掉此参数注释#
+
