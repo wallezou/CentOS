@@ -32,3 +32,9 @@ echo "rmmod pcspkr" >> /root/.bashrc
 
 解决来源网址：
 https://blog.51cto.com/ppeng/274481
+
+
+linux centos 系统命令行使用文本你编辑器经常卡住
+ctrl+q
+
+按esc,再按i键试试
