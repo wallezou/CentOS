@@ -1,5 +1,7 @@
 去除虚拟机Linux的报警声
 
+解决方案一：
+
 # vim /etc/inputrc
 set bell-style visible --去掉此参数注释#
 
@@ -22,4 +24,11 @@ linux Bell 报警声音
 原文：https://blog.csdn.net/erazy0/article/details/5616630 
 版权声明：本文为博主原创文章，转载请附上博文链接！
 
+解决方案二：
+临时解决方案
+# rmmod pcspkr
+一劳永逸方案：
+echo "rmmod pcspkr" >> /root/.bashrc
 
+解决来源网址：
+https://blog.51cto.com/ppeng/274481
