@@ -1,10 +1,10 @@
 去除虚拟机Linux的报警声
 
 解决方案一：
-
+去除命令行的响铃
 # vim /etc/inputrc
 set bell-style visible --去掉此参数注释#
-
+# reboot
 
 
 解决方案来源：
