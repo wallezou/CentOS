@@ -47,6 +47,17 @@ yum makecache
 cp /etc/sysconfig/network-scripts/ifcfg-ens33{,.ori}
 ln -s /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/ens33
 
+关闭系统响铃：
+1. 去除命令行响铃方法：
+临时解决方案
+# rmmod pcspkr
+一劳永逸方案：
+echo "rmmod pcspkr" >> /root/.bashrc
+2.去除vim/vi 文本编辑响铃
+# vim /etc/inputrc
+set bell-style visible --去掉此参数注释#
+# reboot
+
 其他优化
 # 关闭网卡图形化设置模式 #
 systemctl stop NetworkManager.service 
