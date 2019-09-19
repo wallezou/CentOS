@@ -45,16 +45,20 @@ set bell-style visible --去掉此参数注释#
 # reboot
 
 其他优化
-# 关闭网卡图形化设置模式
+
+关闭网卡图形化设置模式
 # systemctl stop NetworkManager.service 
 # systemctl disable NetworkManager.service 
-# 关闭邮件服务
+
+关闭邮件服务
 # systemctl stop postfix
 # systemctl disable postfix
-# 下载tab补全命令
+
+下载tab补全命令
 # # yum install -y bash-completion.noarch
 
 下载 常用命令
 # yum install -y net-tools vim lrzsz wget tree screen lsof tcpdump
-至此；模板机优化完成；关机开始克隆
+
+至此；模板机优化完成；拍摄快照；关机开始克隆
 # shutdown -h now
