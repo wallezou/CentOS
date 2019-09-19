@@ -1,10 +1,11 @@
-系统的优化
+CentOS7最小化系统优化
+
 # 登录xshell开始优化 #
 
-防火墙的优化
-systemctl disable firewalld.service
+防火墙的优化:
+systemctl disable firewalld
 systemctl stop firewalld
-Selinux的优化
+Selinux的优化:
 sed -i 's#SELINUX=enforcing#SELINUX=disabled#g' /etc/selinux/config
 
 ssh的优化
@@ -18,20 +19,15 @@ vi /etc/ssh/sshd_config
 
 sed  -i  '93s@GSSAPIAuthentication yes@GSSAPIAuthentication no@;129s@#UseDNS yes@UseDNS no@' /etc/ssh/sshd_config
 
-# 重启ssh #
-
+# 重启ssh
 systemctl restart sshd
 
-hosts的优化
- 
-
+hosts的优化:
 vi /etc/hosts
 # 增加2行
-10.0.0.11   controller
-10.0.0.31   compute1
-10.0.0.32   compute2
+
 修改主机名
-hostnamectl set-hostname controller
+hostnamectl set-hostname host10
 
 yum源优化
 # 使用光盘搭建本地yum源
@@ -46,6 +42,11 @@ baseurl=file:///mnt
 gpgcheck=0' >local.repo
 mount /dev/cdrom /mnt
 yum makecache
+
+网络优化：
+cp /etc/sysconfig/network-scripts/ifcfg-ens33{,.ori}
+ln -s /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/ens33
+
 其他优化
 # 关闭网卡图形化设置模式 #
 systemctl stop NetworkManager.service 
