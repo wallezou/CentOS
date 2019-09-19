@@ -1,4 +1,13 @@
 去除虚拟机Linux的报警声
+关闭蜂鸣器和删除垃圾文件
+ vi 中关闭出错 bell 声音
+去除虚拟机Linux的报警声
+关闭主板报警音
+linux中关闭报警音和修改分辨率
+linux Bell 报警声音
+消除linux系统的shell和vi的报警声
+消除vmware安装rhel后嘀嘀的错误报警声音
+关掉vmware中报警声
 
 1. 去除命令行响铃方法：
 临时解决方案
@@ -13,19 +22,7 @@ set bell-style visible --去掉此参数注释#
 
 解决来源网址：
 https://blog.51cto.com/ppeng/274481
-
-解决方案来源：
 https://blog.csdn.net/erazy0/article/details/5616630
-关闭蜂鸣器和删除垃圾文件
- vi 中关闭出错 bell 声音
-去除虚拟机Linux的报警声
-关闭主板报警音
-linux中关闭报警音和修改分辨率
-linux Bell 报警声音
-消除linux系统的shell和vi的报警声
-消除vmware安装rhel后嘀嘀的错误报警声音
-关掉vmware中报警声
---------------------- 
 作者：prettykernel 
 来源：CSDN 
 原文：https://blog.csdn.net/erazy0/article/details/5616630 
