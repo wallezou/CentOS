@@ -1,11 +1,18 @@
 去除虚拟机Linux的报警声
 
-解决方案一：
-去除命令行的响铃
+1. 去除命令行响铃方法：
+临时解决方案
+# rmmod pcspkr
+一劳永逸方案：
+echo "rmmod pcspkr" >> /root/.bashrc
+
+2.去除vim/vi 文本编辑响铃
 # vim /etc/inputrc
 set bell-style visible --去掉此参数注释#
 # reboot
 
+解决来源网址：
+https://blog.51cto.com/ppeng/274481
 
 解决方案来源：
 https://blog.csdn.net/erazy0/article/details/5616630
@@ -22,19 +29,9 @@ linux Bell 报警声音
 作者：prettykernel 
 来源：CSDN 
 原文：https://blog.csdn.net/erazy0/article/details/5616630 
-版权声明：本文为博主原创文章，转载请附上博文链接！
-
-解决方案二：
-临时解决方案
-# rmmod pcspkr
-一劳永逸方案：
-echo "rmmod pcspkr" >> /root/.bashrc
-
-解决来源网址：
-https://blog.51cto.com/ppeng/274481
 
 
-linux centos 系统命令行使用文本你编辑器经常卡住
+3. linux centos 系统命令行使用文本你编辑器经常卡住
 ctrl+q
 
 按esc,再按i键试试
