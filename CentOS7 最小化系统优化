@@ -2,25 +2,11 @@ CentOS7最小化系统优化
 
 # 登录xshell开始优化 #
 
-防火墙的优化:
+防火墙优化:
 systemctl disable firewalld
 systemctl stop firewalld
 Selinux的优化:
 sed -i 's#SELINUX=enforcing#SELINUX=disabled#g' /etc/selinux/config
-
-ssh的优化
-# 修改完成后为红色部分 #
-
-vi /etc/ssh/sshd_config
-
-93行： GSSAPIAuthentication no
-
-129行： UseDNS no
-
-sed  -i  '93s@GSSAPIAuthentication yes@GSSAPIAuthentication no@;129s@#UseDNS yes@UseDNS no@' /etc/ssh/sshd_config
-
-# 重启ssh
-systemctl restart sshd
 
 hosts的优化:
 vi /etc/hosts
@@ -32,42 +18,43 @@ hostnamectl set-hostname host10
 yum源优化
 # 使用光盘搭建本地yum源
 
-umount /mnt
-cd /etc/yum.repos.d/
-mkdir test -p
-\mv *.repo test
-echo '[local]
+# umount /mnt
+# cd /etc/yum.repos.d/
+# mkdir test -p
+# \mv *.repo test
+# echo '[local]
 name=local
 baseurl=file:///mnt
 gpgcheck=0' >local.repo
-mount /dev/cdrom /mnt
-yum makecache
+# mount /dev/cdrom /mnt
+# yum makecache
 
 网络优化：
-cp /etc/sysconfig/network-scripts/ifcfg-ens33{,.ori}
-ln -s /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/ens33
+# cp /etc/sysconfig/network-scripts/ifcfg-ens33{,.ori}
+# ln -s /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/ens33
 
 关闭系统响铃：
 1. 去除命令行响铃方法：
 临时解决方案
 # rmmod pcspkr
 一劳永逸方案：
-echo "rmmod pcspkr" >> /root/.bashrc
+# echo "rmmod pcspkr" >> /root/.bashrc
 2.去除vim/vi 文本编辑响铃
 # vim /etc/inputrc
 set bell-style visible --去掉此参数注释#
 # reboot
 
 其他优化
-# 关闭网卡图形化设置模式 #
-systemctl stop NetworkManager.service 
-systemctl disable NetworkManager.service 
+# 关闭网卡图形化设置模式
+# systemctl stop NetworkManager.service 
+# systemctl disable NetworkManager.service 
 # 关闭邮件服务
-systemctl stop postfix.service 
-systemctl disable postfix.service
-# 下载tab补全命令 #
-yum install -y bash-completion.noarch
-# 下载 常用命令 #
-yum install -y net-tools vim lrzsz wget tree screen lsof tcpdump
-# 至此；模板机优化完成；关机开始克隆 #
-shutdown -h now
+# systemctl stop postfix
+# systemctl disable postfix
+# 下载tab补全命令
+# # yum install -y bash-completion.noarch
+
+下载 常用命令
+# yum install -y net-tools vim lrzsz wget tree screen lsof tcpdump
+至此；模板机优化完成；关机开始克隆
+# shutdown -h now
