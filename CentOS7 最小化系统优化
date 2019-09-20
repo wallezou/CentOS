@@ -1,37 +1,58 @@
 CentOS7最小化系统优化
 
-# 登录xshell开始优化 #
+登陆系统开始优化
+
+网络优化：
+# systemctl stop NetworkManager                            
+# systemctl disable NetworkManager
+# cp /etc/sysconfig/network-scripts/ifcfg-ens33{,.ori}
+# ln -s /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/ens33
+
+动态IP配置：
+# vim /etc/ens33  可以删除不必要的参数，只需如下参数即可：
+TYPE=Ethernet                                                              
+BOOTPROTO=dhcp    --改为static或none 表示为启用静态IP模式                                                                                                                       
+NAME=ens33                                                                
+DEVICE=ens33                                                              
+ONBOOT=no          --改为yes：为开机自动网卡设备。
+
+静态IP配置文件参数如下：
+TYPE=Ethernet                                                              
+BOOTPROTO=none                                                                                                                           
+NAME=ens33                                                                
+DEVICE=ens33                                                              
+ONBOOT=yes                                                                
+IPADDR=1.1.1.10                                                           
+PREFIX=24                                                                  
+GATEWAY=1.1.1.254                                                          
+DNS1=172.16.17.1                                                          
+DNS2=8.8.8.8
+
+下载常用命令:
+# yum install -y  vim lrzsz wget lsof tcpdump net-tools tree screen
 
 防火墙优化:
 systemctl disable firewalld
 systemctl stop firewalld
 Selinux的优化:
-sed -i 's#SELINUX=enforcing#SELINUX=disabled#g' /etc/selinux/config
 
-hosts的优化:
-vi /etc/hosts
-# 增加2行
+sed -i 's#SELINUX=enforcing#SELINUX=disabled#g' /etc/selinux/config
 
 修改主机名
 hostnamectl set-hostname host10
 
-yum源优化
-# 使用光盘搭建本地yum源
 
-# umount /mnt
-# cd /etc/yum.repos.d/
-# mkdir test -p
-# \mv *.repo test
-# echo '[local]
-name=local
-baseurl=file:///mnt
-gpgcheck=0' >local.repo
-# mount /dev/cdrom /mnt
-# yum makecache
 
-网络优化：
-# cp /etc/sysconfig/network-scripts/ifcfg-ens33{,.ori}
-# ln -s /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/ens33
+
+
+其他优化
+
+下载tab补全命令
+# # yum install -y bash-completion.noarch
+
+关闭网卡图形化设置模式
+# systemctl stop NetworkManager.service 
+# systemctl disable NetworkManager.service 
 
 关闭系统响铃：
 1. 去除命令行响铃方法：
@@ -44,21 +65,26 @@ gpgcheck=0' >local.repo
 set bell-style visible --去掉此参数注释#
 # reboot
 
-其他优化
-
-关闭网卡图形化设置模式
-# systemctl stop NetworkManager.service 
-# systemctl disable NetworkManager.service 
-
 关闭邮件服务
 # systemctl stop postfix
 # systemctl disable postfix
 
-下载tab补全命令
-# # yum install -y bash-completion.noarch
+hosts的优化:
+vi /etc/hosts
 
-下载 常用命令
-# yum install -y net-tools vim lrzsz wget tree screen lsof tcpdump
+yum源优化
+使用光盘搭建本地yum源
+# umount /mnt
+# cd /etc/yum.repos.d/
+# mkdir test -p
+# mv *.repo test
+# echo '[local]
+name=local
+baseurl=file:///mnt
+gpgcheck=0' >local.repo
+# mount /dev/cdrom /mnt
+# yum makecache
+
 
 至此；模板机优化完成；拍摄快照；关机开始克隆
 # shutdown -h now
