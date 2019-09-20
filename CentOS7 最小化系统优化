@@ -42,9 +42,6 @@ sed -i 's#SELINUX=enforcing#SELINUX=disabled#g' /etc/selinux/config
 hostnamectl set-hostname host10
 
 
-
-
-
 其他优化
 
 下载tab补全命令
