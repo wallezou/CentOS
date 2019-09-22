@@ -82,6 +82,9 @@ gpgcheck=0' >local.repo
 # mount /dev/cdrom /mnt
 # yum makecache
 
+:set noeb
+:set vb
+:set vb t_vb=
 
 至此；模板机优化完成；拍摄快照；关机开始克隆
 # shutdown -h now
