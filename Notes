@@ -31,3 +31,6 @@ https://blog.csdn.net/erazy0/article/details/5616630
 ctrl+q
 
 按esc,再按i键试试
+
+Vi/Vim 使用小窍门，如何消除搜索后的关键字高亮
+:noh
