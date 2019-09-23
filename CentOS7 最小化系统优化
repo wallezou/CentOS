@@ -93,6 +93,13 @@ yum install -y epel*
 cd /etc/yum.repos.d 
 wget https://mirrors.aliyun.com/repo/epel-7.repo
 
+# wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+# yum clearn all  ##清理yum缓存
+# yum makecache   ##重建缓存
+# yum update      ##升级linux系统
+
+
+
 vi/vim中关闭出错bell声音:
 :set noeb
 命令（其中 noeb 是 noerrorbells 的缩写），这样当错误发生的时候将不会发出 bi 的一声。如果想要在出错的时候有一些提示，可以使用
