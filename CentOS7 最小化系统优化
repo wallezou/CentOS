@@ -82,9 +82,20 @@ gpgcheck=0' >local.repo
 # mount /dev/cdrom /mnt
 # yum makecache
 
+vi/vim中关闭出错bell声音:
 :set noeb
+命令（其中 noeb 是 noerrorbells 的缩写），这样当错误发生的时候将不会发出 bi 的一声。如果想要在出错的时候有一些提示，可以使用
 :set vb
+命令（其中 vb 是 visualbell 的缩写），代替 bell 的将是屏幕的闪烁。
 :set vb t_vb=
+这下 vi 的出错发声就彻底被禁止了。（跟上面的 set noeb 效果相同，但是通过设置 t_vb 的值还可以有其他表现，具体参看 vi 的帮助）
+
+上面这些命令还可以写在 $HOME/.vimrc 里面，就可以免去每次手工输入命令了。
+更详细的说明可在 vi/vim 中使用
+:help vb
+
+
+
 
 至此；模板机优化完成；拍摄快照；关机开始克隆
 # shutdown -h now
