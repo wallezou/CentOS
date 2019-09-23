@@ -32,20 +32,20 @@ DNS2=8.8.8.8
 # yum install -y  vim lrzsz wget lsof tcpdump net-tools tree screen
 
 防火墙优化:
-systemctl disable firewalld
-systemctl stop firewalld
-Selinux的优化:
+# systemctl disable firewalld
+# systemctl stop firewalld
+# Selinux的优化:
 
-sed -i 's#SELINUX=enforcing#SELINUX=disabled#g' /etc/selinux/config
+# sed -i 's#SELINUX=enforcing#SELINUX=disabled#g' /etc/selinux/config
 
 修改主机名
-hostnamectl set-hostname host10
+# hostnamectl set-hostname host10
 
 
 其他优化
 
 下载tab补全命令
-# # yum install -y bash-completion.noarch
+# yum install -y bash-completion.noarch
 
 关闭网卡图形化设置模式
 # systemctl stop NetworkManager.service 
@@ -67,7 +67,7 @@ set bell-style visible --去掉此参数注释#
 # systemctl disable postfix
 
 hosts的优化:
-vi /etc/hosts
+# vim /etc/hosts
 
 yum源优化
 
