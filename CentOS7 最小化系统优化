@@ -70,6 +70,7 @@ hosts的优化:
 vi /etc/hosts
 
 yum源优化
+
 使用光盘搭建本地yum源
 # umount /mnt
 # cd /etc/yum.repos.d/
@@ -81,6 +82,16 @@ baseurl=file:///mnt
 gpgcheck=0' >local.repo
 # mount /dev/cdrom /mnt
 # yum makecache
+
+使用阿里yum原
+cd /etc/yum.repos.d 
+wget https://mirrors.aliyun.com/repo/epel-7.repo
+
+添加扩展（epel）yum原
+yum install -y epel*
+或者
+cd /etc/yum.repos.d 
+wget https://mirrors.aliyun.com/repo/epel-7.repo
 
 vi/vim中关闭出错bell声音:
 :set noeb
