@@ -9,12 +9,12 @@ CentOS7最小化系统优化
 # ln -s /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/ens33
 
 动态IP配置：
-# vim /etc/ens33  可以删除不必要的参数，只需如下参数即可：
+# vim /etc/ens33  ##可以删除不必要的参数，只需如下参数即可
 TYPE=Ethernet                                                              
-BOOTPROTO=dhcp    --改为static或none 表示为启用静态IP模式                                                                                                                       
+BOOTPROTO=dhcp    ##改为static或none 表示为启用静态IP模式                                                                                                                       
 NAME=ens33                                                                
 DEVICE=ens33                                                              
-ONBOOT=no          --改为yes：为开机自动网卡设备。
+ONBOOT=no         ##改为yes：为开机自动网卡设备。
 
 静态IP配置文件参数如下：
 TYPE=Ethernet                                                              
@@ -53,13 +53,11 @@ DNS2=8.8.8.8
 
 关闭系统响铃：
 1. 去除命令行响铃方法：
-临时解决方案
-# rmmod pcspkr
-一劳永逸方案：
-# echo "rmmod pcspkr" >> /root/.bashrc
+# rmmod pcspkr ##临时解决方案
+# echo "rmmod pcspkr" >> /root/.bashrc   ##一劳永逸方案
 2.去除vim/vi 文本编辑响铃
 # vim /etc/inputrc
-set bell-style visible --去掉此参数注释#
+set bell-style visible ##去掉此参数注释
 # reboot
 
 关闭邮件服务
@@ -111,7 +109,6 @@ vi/vim中关闭出错bell声音:
 上面这些命令还可以写在 $HOME/.vimrc 里面，就可以免去每次手工输入命令了。
 更详细的说明可在 vi/vim 中使用
 :help vb
-
 
 
 
